@@ -74,7 +74,79 @@ dns_records = {
             604800, #expire
             86400, #minimum
         ),
+        
     },
+    'nyu.edu.': {
+        dns.rdatatype.A: '192.168.1.106',
+        dns.rdatatype.AAAA: '2001:0db8:85a3:0000:0000:8a2e:0373:7312',
+        dns.rdatatype.MX: [(10, 'mxa-00256a01.gslb.pphosted.com.')],  # List of (preference, mail server) tuples
+        dns.rdatatype.CNAME: 'www.example.com.',
+        dns.rdatatype.NS: 'ns1.nyu.edu.',
+        dns.rdatatype.TXT: (input_string,),
+        dns.rdatatype.SOA: (
+            'ns1.example.com.', #mname
+            'admin.example.com.', #rname
+            2023081401, #serial
+            3600, #refresh
+            1800, #retry
+            604800, #expire
+            86400, #minimum
+        ),
+        
+    },
+
+    'safebank.com.': {
+        dns.rdatatype.A: '192.168.1.102',
+        dns.rdatatype.SOA: (
+            'ns1.example.com.', #mname
+            'admin.example.com.', #rname
+            2023081401, #serial
+            3600, #refresh
+            1800, #retry
+            604800, #expire
+            86400, #minimum
+        ),
+        
+    },
+    'google.com.': {
+        dns.rdatatype.A: '192.168.1.103',
+        dns.rdatatype.SOA: (
+            'ns1.example.com.', #mname
+            'admin.example.com.', #rname
+            2023081401, #serial
+            3600, #refresh
+            1800, #retry
+            604800, #expire
+            86400, #minimum
+        ),
+        
+    },
+    'legitsite.com.': {
+        dns.rdatatype.A: '192.168.1.104',
+        dns.rdatatype.SOA: (
+            'ns1.example.com.', #mname
+            'admin.example.com.', #rname
+            2023081401, #serial
+            3600, #refresh
+            1800, #retry
+            604800, #expire
+            86400, #minimum
+        ),
+        
+    },
+    'yahoo.com.': {
+        dns.rdatatype.A: '192.168.1.105',
+        dns.rdatatype.SOA: (
+            'ns1.example.com.', #mname
+            'admin.example.com.', #rname
+            2023081401, #serial
+            3600, #refresh
+            1800, #retry
+            604800, #expire
+            86400, #minimum
+        ),
+        
+    }
    
     # Add more records as needed (see assignment instructions!
 }
@@ -82,7 +154,7 @@ dns_records = {
 def run_dns_server():
     # Create a UDP socket and bind it to the local IP address (what unique IP address is used here, similar to webserver lab) and port (the standard port for DNS)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Research this
-    server_socket.bind(('', 53))
+    server_socket.bind(('', 12345))
 
     while True:
         try:
